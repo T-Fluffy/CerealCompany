@@ -1,0 +1,45 @@
+{% extends 'template.html.twig' %}
+{% block body %}
+
+    <h1>Silo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Capacite</th>
+                <th>CodeS</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                <th>actions</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for silo in silos %}
+            <tr>
+                <td>{{ silo.id }}</td>
+                <td>{{ silo.Nom }}</td>
+                <td>{{ silo.Adresse }}</td>
+                <td>{{ silo.Capacite }}</td>
+                <td>{{ silo.CodeS }}</td>
+                {% if is_granted('ROLE_ADMIN') %}
+                <td>
+                    <a href="{{ path('silo_show', {'id': silo.id}) }}">show</a>
+                    <a href="{{ path('silo_edit', {'id': silo.id}) }}">edit</a>
+                </td>
+                {% endif %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{path('silo_new')}}" type="button" class="btn btn-primary">Create new</a>
+    {% endif %}
+    <div><br></div>
+{% endblock %}

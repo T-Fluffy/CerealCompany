@@ -1,0 +1,6 @@
+INFORMATIONS SUR LA BASE DE DONN2ES DU PROJET:
+
+Toutes les informatormations et données de ce projet son son stocké dans la base de données SQL PhpMyAdmin "mini_projet.sql.zip".
+Il suffit tout just de l'importer dans "phpMyAdmin" et lanser le serveur du projet pour visualiser selui-ci.
+
+Halloul tarek.

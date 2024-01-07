@@ -1,0 +1,11 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}New Cereale{% endblock %}
+
+{% block body %}
+    <h1>Create new Cereale</h1>
+
+    {{ include('cereale/_form.html.twig') }}
+
+    <a href="{{ path('cereale_index') }}">back to list</a>
+{% endblock %}

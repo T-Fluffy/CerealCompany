@@ -1,0 +1,43 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Collecte index{% endblock %}
+
+{% block body %}
+    <h1>Collecte index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>DateC</th>
+                <th>Quantite</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                <th>actions</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for collecte in collectes %}
+            <tr>
+                <td>{{ collecte.id }}</td>
+                <td>{{ collecte.DateC ? collecte.DateC|date('Y-m-d') : '' }}</td>
+                <td>{{ collecte.Quantite }}</td>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <td>
+                        <a href="{{ path('collecte_show', {'id': collecte.id}) }}">show</a>
+                        <a href="{{ path('collecte_edit', {'id': collecte.id}) }}">edit</a>
+                    </td>
+                {% endif %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('collecte_new') }}" type="button" class="btn btn-primary">Create new</a>
+    {% endif %}
+    <div><br></div>
+    {% endblock %}

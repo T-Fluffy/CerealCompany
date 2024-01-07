@@ -1,0 +1,41 @@
+{% extends 'template.html.twig' %}
+{% block body %}
+    <h1>Cereale index</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomC</th>
+                <th>Prix</th>
+                <th>CodeC</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                <th>actions</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for cereale in cereales %}
+            <tr>
+                <td>{{ cereale.id }}</td>
+                <td>{{ cereale.NomC }}</td>
+                <td>{{ cereale.Prix }}</td>
+                <td>{{ cereale.CodeC }}</td>
+                {% if is_granted('ROLE_ADMIN') %}
+                <td>
+                    <a href="{{ path('cereale_show', {'id': cereale.id}) }}">show</a>
+                    <a href="{{ path('cereale_edit', {'id': cereale.id}) }}">edit</a>
+                </td>
+                {% endif %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('cereale_new') }}" type="button" class="btn btn-primary">Create new</a>
+    {% endif %}
+    <div><br></div>
+{% endblock %}

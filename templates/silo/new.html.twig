@@ -1,0 +1,6 @@
+{% extends 'template.html.twig' %}
+{% block body %}
+    <h1>Create new Silo</h1>
+    {{ include('silo/_form.html.twig') }}
+    <a href="{{ path('silo_index') }}">back to list</a>
+{% endblock %}

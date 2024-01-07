@@ -1,0 +1,13 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Edit Silo{% endblock %}
+
+{% block body %}
+    <h1>Edit Silo</h1>
+
+    {{ include('silo/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('silo_index') }}">back to list</a>
+
+    {{ include('silo/_delete_form.html.twig') }}
+{% endblock %}

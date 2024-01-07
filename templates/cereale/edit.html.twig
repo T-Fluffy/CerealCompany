@@ -1,0 +1,13 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Edit Cereale{% endblock %}
+
+{% block body %}
+    <h1>Edit Cereale</h1>
+
+    {{ include('cereale/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('cereale_index') }}">back to list</a>
+
+    {{ include('cereale/_delete_form.html.twig') }}
+{% endblock %}
