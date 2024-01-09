@@ -1,5 +1,7 @@
 # CerealCompany
 
+![Symfony](https://img.shields.io/badge/symfony-%23000000.svg?style=for-the-badge&logo=symfony&logoColor=white)
+
 A second year symfony 5 project of my software engineering curriculum study.
 This project is just a simple showcase of an MVC CRUD Web application in symfony 5.
 
